@@ -6,8 +6,9 @@
 }
 body {
   font-family: "Raleway", sans-serif;
+  background: #f8f9fa;
 }
-a{
+a {
   text-decoration: none;
 }
 .form {
@@ -27,9 +28,39 @@ a{
   background: #800000;
   color: #fff;
 }
-.logo{
+.logo {
   width: 50px;
-  padding: 7px;
-  margin-left: 10px;
-  background-color: rgb(92, 92, 92);
+  margin-left: 20px;
+}
+
+.sidebar {
+  height: 100vh;
+  background: #b30000;
+  color: #fff;
+  padding: 20px;
+  font-weight: bold;
+}
+
+.sidebar a {
+  color: #fff;
+  display: block;
+  padding: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.sidebar a:hover {
+  background: #800000;
+}
+
+.card {
+  border-radius: 15px;
+}
+
+.topbar {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
