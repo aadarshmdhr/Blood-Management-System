@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blood Management System</title>
+  <style>
+    :root {
+      --primary: #e74c3c;
+      --primary-dark: #c0392b;
+      --secondary: #f39c12;
+      --light: #f8f9fa;
+      --dark: #2c3e50;
+      --gray: #95a5a6;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f1f2f6;
+      color: var(--dark);
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 1rem 2rem;
+      box-shadow: 0 0.25rem 1rem rgba(0,0,0,0.15);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      font-size: 1.6rem;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 0.8rem;
+      border-radius: 0.3rem;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .section {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: #34495e;
+    }
+
+    .hero h2 {
+      font-size: 2.2rem;
+      margin-bottom: 0.8rem;
+      color: var(--primary-dark);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--gray);
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 0.8rem;
+      box-shadow: 0 0.2rem 1rem rgba(0,0,0,0.1);
+      padding: 1.8rem 1.5rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.15);
+    }
+
+    .card i {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      color: var(--primary-dark);
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: var(--gray);
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background: var(--primary);
+      color: white;
+      border-radius: 0.3rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: 0.3s;
+    }
+
+    .card a:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Form section styles */
+    .form-section {
+      background: white;
+      border-radius: 0.8rem;
+      box-shadow: 0 0.2rem 1rem rgba(0,0,0,0.1);
+      padding: 2rem 1.8rem;
+      max-width: 500px;
+      margin: 2rem auto;
+    }
+
+    .form-section h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: var(--primary-dark);
+    }
+
+    .input-group {
+      margin-bottom: 1rem;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+      color: var(--dark);
+    }
+
+    .input-group input,
+    .input-group select,
+    .input-group textarea {
+      width: 100%;
+      padding: 0.7rem 0.9rem;
+      border: 1px solid #ddd;
+      border-radius: 0.3rem;
+      font-size: 0.95rem;
+      transition: border 0.3s;
+    }
+
+    .input-group input:focus,
+    .input-group select:focus,
+    .input-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.7rem 1.4rem;
+      border-radius: 0.3rem;
+      cursor: pointer;
+      font-size: 0.95rem;
+      width: 100%;
+      margin-top: 0.5rem;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Table for Blood Request List */
+    .table-section {
+      margin-top: 2rem;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.8rem;
+    }
+
+    th, td {
+      padding: 0.8rem;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background: var(--primary);
+      color: white;
+      font-weight: 500;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fdfdfd;
+    }
+
+    tr:hover {
+      background-color: #f8f9fa;
+    }
+
+    @media (max-width: 768px) {
+      header .container {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: stretch;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <!-- Font Awesome icons (CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- Header + Navigation -->
+  <header>
+    <div class="container">
+      <h1><i class="fas fa-heartbeat"></i> Blood Management System</h recl>
+      <nav>
+        <ul>
+          <li><a href="#login">Login</a></li>
+          <li><a href="#register">Register</a></li>
+          <li><a href="#bloodbank">Blood Bank</a></li>
+          <li><a href="#request">Blood Request</a></li>
+          <li><a href="#request-list">Request List</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero section -->
+  <section class="hero">
+    <h2>Save Lives with Safe Blood</h2>
+    <p>
+      Our Blood Management System connects donors, recipients, and blood banks 
+      to ensure timely and safe blood supply whenever it’s needed.
+    </p>
+  </section>
+
+  <!-- Feature Cards (Login, Register, Blood Bank, etc.) -->
+  <section class="section card-grid">
+    <div class="card" id="login">
+      <i class="fas fa-sign-in-alt"></i>
+      <h3>Login</h3>
+      <p>Login to your account to access your dashboard and manage blood requests.</p>
+      <a href="#login-form">Open Login</a>
+    </div>
+
+    <div class="card" id="register">
+      <i class="fas fa-user-plus"></i>
+      <h3>Register</h3>
+      <p>Sign up as a donor or recipient to join our blood donation network.</p>
+      <a href="#register-form">Register Now</a>
+    </div>
+
+    <div class="card" id="bloodbank">
+      <i class="fas fa-hospital"></i>
+      <h3>Blood Bank</h3>
+      <p>View available blood groups, stock levels, and nearby blood banks.</p>
+      <a href="#bloodbank-list">View Blood Bank</a>
+    </div>
+
+    <div class="card" id="request">
+      <i class="fas fa-hand-holding-medical"></i>
+      <h3>Blood Request</h3>
+      <p>Submit a blood request with details like blood group, quantity, and urgency.</p>
+      <a href="#request-form">Create Request</a>
+    </div>
+
+    <div class="card" id="request-list">
+      <i class="fas fa-list"></i>
+      <h3>Request List</h3>
+      <p>View all pending and completed blood requests in a clean table.</p>
+      <a href="#request-table">View List</a>
+    </div>
+  </section>
+
+  <!-- Login Form -->
+  <section class="form-section" id="login-form">
+    <h2>Login</h2>
+    <form>
+      <div class="input-group">
+        <label>Email</label>
+        <input type="email" placeholder="Enter email" required />
+      </div>
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" placeholder="Enter password" required />
+      </div>
+      <button type="submit" class="btn">Login</button>
+    </form>
+  </section>
+
+  <!-- Register Form -->
+  <section class="form-section" id="register-form">
+    <h2>Register</h2>
+    <form>
+      <div class="input-group">
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter your name" required />
+      </div>
+      <div class="input-group">
+        <label>Email</label>
+        <input type="email" placeholder="Enter email" required />
+      </div>
+      <div class="input-group">
+        <label>Phone</label>
+        <input type="tel" placeholder="(e.g., +977-98...)" required />
+      </div>
+      <div class="input-group">
+        <label>Blood Group</label>
+        <select required>
+          <option value="">Select Blood Group</option>
+          <option value="A+">A+</option>
+          <option value="A-">A-</option>
+          <option value="B+">B+</option>
+          <option value="B-">B-</option>
+          <option value="AB+">AB+</option>
+          <option value="AB-">AB-</option>
+          <option value="O+">O+</option>
+          <option value="O-">O-</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" placeholder="Create password" required />
+      </div>
+      <button type="submit" class="btn">Register</button>
+    </form>
+  </section>
+
+  <!-- Blood Bank Example (you can connect to DB later) -->
+  <section class="section" id="bloodbank-list">
+    <h2>Blood Bank Stock</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Blood Group</th>
+          <th>Available Units</th>
+          <th>Location</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>A+</td>
+          <td>12 units</td>
+          <td>Central Hospital, Kathmandu</td>
+          <td>In Stock</td>
+        </tr>
+        <tr>
+          <td>O+</td>
+          <td>25 units</td>
+          <td>City Blood Bank, Biratnagar</td>
+          <td>In Stock</td>
+        </tr>
+        <tr>
+          <td>AB-</td>
+          <td>3 units</td>
+          <td>City Blood Bank, Biratnagar</td>
+          <td>Limited</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Blood Request Form -->
+  <section class="form-section" id="request-form">
+    <h2>Blood Request</h2>
+    <form>
+      <div class="input-group">
+        <label>Patient Name</label>
+        <input type="text" placeholder="Enter patient name" required />
+      </div>
+      <div class="input-group">
+        <label>Hospital / Center</label>
+        <input type="text" placeholder="Hospital name & address" required />
+      </div>
+      <div class="input-group">
+        <label>Required Blood Group</label>
+        <select required>
+          <option value="">Select Blood Group</option>
+          <option value="A+">A+</option>
+          <option value="A-">A-</option>
+          <option value="B+">B+</option>
+          <option value="B-">B-</option>
+          <option value="AB+">AB+</option>
+          <option value="AB-">AB-</option>
+          <option value="O+">O+</option>
+          <option value="O-">O-</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label>Required Units</label>
+        <input type="number" min="1" placeholder="e.g., 2" required />
+      </div>
+      <div class="input-group">
+        <label>Urgency</label>
+        <select required>
+          <option value="Normal">Normal</option>
+          <option value="Urgent">Urgent</option>
+          <option value="Critical">Critical</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label>Description / Special Notes</label>
+        <textarea placeholder="Any special requirements or notes..."></textarea>
+      </div>
+      <button type="submit" class="btn">Submit Request</button>
+    </form>
+  </section>
+
+  <!-- Blood Request List Table -->
+  <section class="section table-section" id="request-table">
+    <h2>Blood Request List</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Patient Name</th>
+          <th>Blood Group</th>
+          <th>Units</th>
+          <th>Urgency</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>#BR001</td>
+          <td>Ram Shrestha</td>
+          <td>A+</td>
+          <td>2 units</td>
+          <td>Normal</td>
+          <td>Pending</td>
+          <td><button class="btn" style="padding:0.4rem 0.8rem; font-size:0.8rem;">View</button></td>
+        </tr>
+        <tr>
+          <td>#BR002</td>
+          <td>Sita Gurung</td>
+          <td>O+</td>
+          <td>4 units</td>
+          <td>Urgent</td>
+          <td>Approved</td>
+          <td><button class="btn" style="padding:0.4rem 0.8rem; font-size:0.8rem;">View</button></td>
+        </tr>
+        <tr>
+          <td>#BR003</td>
+          <td>Bikash Rajbhandari</td>
+          <td>AB-</td>
+          <td>1 unit</td>
+          <td>Critical</td>
+          <td>Completed</td>
+          <td><button class="btn" style="padding:0.4rem 0.8rem; font-size:0.8rem;">View</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</body>
+</html>
