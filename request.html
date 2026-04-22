@@ -1,29 +1,155 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+
 <head>
-    <title>Request Blood</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blood Request - Blood Management System</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .form-card {
+            border-radius: 15px;
+        }
+    </style>
 </head>
+
 <body>
 
-<header>
-    <h1>Request Blood</h1>
-    <nav>
-        <a href="bloodbank.html">Blood Bank</a>
-        <a href="requestlist.html">Request List</a>
-        <a href="request.html">Request Blood</a>
-    </nav>
-</header>
+    <div class="container-fluid">
+        <div class="row">
 
-<div class="container">
-    <form>
-        <input type="text" placeholder="Patient Name">
-        <input type="text" placeholder="Blood Group">
-        <input type="number" placeholder="Units Required">
-        <input type="text" placeholder="Hospital Name">
-        <button>Submit Request</button>
-    </form>
-</div>
+            <!-- Sidebar -->
+            <div class="col-md-1 sidebar">
+                <a href="dashboard.html"><img class="logo" src="img/logo-bg.png"></a>
+
+                <a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a>
+                <a href="donors.html"><i class="bi bi-person"></i> Donors</a>
+                <a href="blood-request.html" class="active"><i class="bi bi-droplet"></i> Blood Requests</a>
+                <a href="#"><i class="bi bi-hospital"></i> Blood Bank</a>
+                <a
+                    href="https://www.google.com/maps/search/hospital+near+YOUR_POSTAL_CODE/@27.6911793,85.3185663,15397m/data=!3m1!1e3?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D"><i
+                        class="bi bi-map"></i> Map</a>
+                <a href="#"><i class="bi bi-gear"></i> Settings</a>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-11 p-4">
+
+                <!-- Topbar -->
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="fw-bold text-danger">Create Blood Request</h3>
+
+                    <a href="dashboard.html" class="btn btn-outline-danger">
+                        <i class="bi bi-arrow-left"></i> Back
+                    </a>
+                </div>
+
+                <!-- Form -->
+                <div class="card shadow form-card">
+                    <div class="card-body">
+
+                        <form>
+
+                            <div class="row g-3">
+
+                                <!-- Patient Name -->
+                                <div class="col-md-6">
+                                    <label class="form-label">Patient Name</label>
+                                    <input type="text" class="form-control" placeholder="Enter patient name">
+                                </div>
+
+                                <!-- Blood Group -->
+                                <div class="col-md-6">
+                                    <label class="form-label">Required Blood Group</label>
+                                    <select class="form-select">
+                                        <option selected>Select Blood Group</option>
+                                        <option>A+</option>
+                                        <option>B+</option>
+                                        <option>O+</option>
+                                        <option>AB+</option>
+                                        <option>A-</option>
+                                        <option>O-</option>
+                                    </select>
+                                </div>
+
+                                <!-- Units -->
+                                <div class="col-md-6">
+                                    <label class="form-label">Units Required</label>
+                                    <input type="number" class="form-control" placeholder="Enter units">
+                                </div>
+
+                                <!-- Urgency -->
+                                <div class="col-md-6">
+                                    <label class="form-label">Urgency Level</label>
+                                    <select class="form-select">
+                                        <option selected>Select urgency</option>
+                                        <option class="text-danger">Urgent</option>
+                                        <option>Normal</option>
+                                    </select>
+                                </div>
+
+                                <!-- Hospital -->
+                                <div class="col-md-6">
+                                    <label class="form-label">Hospital Name</label>
+                                    <input type="text" class="form-control" placeholder="Enter hospital name">
+                                </div>
+
+                                <!-- Location -->
+                                <div class="col-md-6">
+                                    <label class="form-label">Location</label>
+                                    <input type="text" class="form-control" placeholder="City / District">
+                                </div>
+
+                                <!-- Contact -->
+                                <div class="col-md-6">
+                                    <label class="form-label">Contact Number</label>
+                                    <input type="text" class="form-control" placeholder="Phone number">
+                                </div>
+
+                                <!-- Date -->
+                                <div class="col-md-6">
+                                    <label class="form-label">Required Date</label>
+                                    <input type="date" class="form-control">
+                                </div>
+
+                                <!-- Notes -->
+                                <div class="col-md-12">
+                                    <label class="form-label">Additional Notes</label>
+                                    <textarea class="form-control" rows="3" placeholder="Any extra details"></textarea>
+                                </div>
+
+                            </div>
+
+                            <!-- Buttons -->
+                            <div class="mt-4 d-flex gap-3">
+                                <button type="submit" class="btn btn-danger px-4">
+                                    <i class="bi bi-send"></i> Submit Request
+                                </button>
+
+                                <button type="reset" class="btn btn-secondary px-4">
+                                    Reset
+                                </button>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>
