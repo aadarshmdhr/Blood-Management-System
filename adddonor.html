@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add Donor - Blood Management System</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .form-card {
+            border-radius: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- Sidebar -->
+            <div class="col-md-1 sidebar">
+                <a href="dashboard.html"><img class="logo" src="img/logo-bg.png"></a>
+
+                <a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a>
+                <a href="donors.html"><i class="bi bi-person"></i> Donors</a>
+                <a href="#"><i class="bi bi-droplet"></i> Blood Requests</a>
+                <a href="#"><i class="bi bi-hospital"></i> Blood Bank</a>
+                <a
+                    href="https://www.google.com/maps/search/hospital+near+YOUR_POSTAL_CODE/@27.6911793,85.3185663,15397m/data=!3m1!1e3?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D"><i
+                        class="bi bi-map"></i> Map</a>
+                <a href="#"><i class="bi bi-gear"></i> Settings</a>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-11 p-4">
+
+                <!-- Topbar -->
+                <div class="topbar d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="fw-bold text-danger">Add New Donor</h3>
+
+                    <a href="donors.html" class="btn btn-outline-danger">
+                        <i class="bi bi-arrow-left"></i> Back
+                    </a>
+                </div>
+
+                <!-- Form -->
+                <div class="card shadow form-card">
+                    <div class="card-body">
+
+                        <form>
+
+                            <div class="row g-3">
+
+                                <!-- Name -->
+                                <div class="col-md-6">
+                                    <label class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" placeholder="Enter full name">
+                                </div>
+
+                                <!-- Phone -->
+                                <div class="col-md-6">
+                                    <label class="form-label">Phone Number</label>
+                                    <input type="text" class="form-control" placeholder="Enter phone number">
+                                </div>
+
+                                <!-- Email -->
+                                <div class="col-md-6">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-control" placeholder="Enter email">
+                                </div>
+
+                                <!-- Blood Group -->
+                                <div class="col-md-6">
+                                    <label class="form-label">Blood Group</label>
+                                    <select class="form-select">
+                                        <option selected>Select Blood Group</option>
+                                        <option>A+</option>
+                                        <option>A-</option>
+                                        <option>B+</option>
+                                        <option>B-</option>
+                                        <option>O+</option>
+                                        <option>O-</option>
+                                        <option>AB+</option>
+                                        <option>AB-</option>
+                                    </select>
+                                </div>
+
+                                <!-- Location -->
+                                <div class="col-md-6">
+                                    <label class="form-label">Location</label>
+                                    <input type="text" class="form-control" placeholder="City / District">
+                                </div>
+
+                                <!-- Age -->
+                                <div class="col-md-6">
+                                    <label class="form-label">Age</label>
+                                    <input type="number" class="form-control" placeholder="Enter age">
+                                </div>
+
+                                <!-- Gender -->
+                                <div class="col-md-6">
+                                    <label class="form-label">Gender</label><br>
+                                    <input type="radio" name="gender"> Male
+                                    <input type="radio" name="gender" class="ms-3"> Female
+                                </div>
+
+                                <!-- Availability -->
+                                <div class="col-md-6">
+                                    <label class="form-label">Availability</label><br>
+                                    <input type="checkbox"> Available for donation
+                                </div>
+
+                            </div>
+
+                            <!-- Buttons -->
+                            <div class="mt-4 d-flex gap-3">
+                                <button type="submit" class="btn btn-danger px-4">
+                                    <i class="bi bi-check-circle"></i> Save Donor
+                                </button>
+
+                                <button type="reset" class="btn btn-secondary px-4">
+                                    Reset
+                                </button>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
