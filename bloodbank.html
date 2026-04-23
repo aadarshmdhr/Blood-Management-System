@@ -1,34 +1,139 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+
 <head>
-    <title>Blood Bank</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blood Bank - Blood Management System</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .blood-card {
+      border-radius: 15px;
+      text-align: center;
+      padding: 20px;
+      color: #fff;
+    }
+  </style>
 </head>
+
 <body>
 
-    <header>
-        <h1>Blood Bank Management System</h1>
-        <nav>
-            <a href="bloodbank.html">Blood Bank</a>
-            <a href="requestlist.html">Request List</a>
-            <a href="request.html">Request Blood</a>
-            <a href="login.html">Logout</a>
-        </nav>
-    </header>
+<div class="container-fluid">
+  <div class="row">
 
-    <section class="table-section">
-        <h2>Available Blood</h2>
-        <table>
-            <tr>
-                <th>Blood Group</th>
-                <th>Units Available</th>
-            </tr>
-            <tr><td>A+</td><td>10</td></tr>
-            <tr><td>B+</td><td>8</td></tr>
-            <tr><td>O+</td><td>15</td></tr>
-            <tr><td>AB+</td><td>5</td></tr>
-        </table>
-    </section>
+    <!-- Sidebar -->
+    <div class="col-md-2 sidebar">
+      <a href="dashboard.html"><img class="logo" src="img/logo-bg.png"></a>
+
+      <a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a>
+      <a href="donors.html"><i class="bi bi-person"></i> Donors</a>
+      <a href="blood-request.html"><i class="bi bi-droplet"></i> Blood Requests</a>
+      <a href="blood-bank.html" class="active"><i class="bi bi-hospital"></i> Blood Bank</a>
+      <a href="map.html"><i class="bi bi-map"></i> Map</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="col-md-10 p-4">
+
+      <!-- Title -->
+      <h3 class="fw-bold text-danger mb-4">Blood Bank Inventory</h3>
+
+      <!-- Blood Inventory Cards -->
+      <div class="row g-4">
+
+        <div class="col-md-3">
+          <div class="blood-card bg-danger">
+            <h4>A+</h4>
+            <h2>45 Units</h2>
+            <span class="badge bg-light text-dark">Available</span>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="blood-card bg-warning">
+            <h4>B+</h4>
+            <h2>10 Units</h2>
+            <span class="badge bg-dark">Low</span>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="blood-card bg-success">
+            <h4>O+</h4>
+            <h2>60 Units</h2>
+            <span class="badge bg-light text-dark">Available</span>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="blood-card bg-dark">
+            <h4>AB+</h4>
+            <h2>5 Units</h2>
+            <span class="badge bg-danger">Critical</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Table -->
+      <div class="card mt-5 shadow">
+        <div class="card-body">
+
+          <h5 class="mb-3 text-danger fw-semibold">Blood Bank List</h5>
+
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Blood Bank Name</th>
+                <th>Location</th>
+                <th>Contact</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>Red Cross Blood Bank</td>
+                <td>Kathmandu</td>
+                <td>01-1234567</td>
+                <td><span class="badge bg-success">Active</span></td>
+              </tr>
+
+              <tr>
+                <td>City Hospital Blood Bank</td>
+                <td>Lalitpur</td>
+                <td>01-7654321</td>
+                <td><span class="badge bg-warning">Limited</span></td>
+              </tr>
+
+              <tr>
+                <td>Bhaktapur Blood Center</td>
+                <td>Bhaktapur</td>
+                <td>01-9988776</td>
+                <td><span class="badge bg-danger">Critical</span></td>
+              </tr>
+            </tbody>
+
+          </table>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>
