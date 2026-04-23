@@ -27,19 +27,30 @@
 
                     <form class="py-5">
 
-                        <!-- Email / Phone-->
+                        <!-- Email / Phone -->
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Email address / Phone Number</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp">
-                            <div id="emailHelp" class="form-text">We'll never share your details with anyone else.</div>
+                            <label class="form-label">Email address / Phone Number</label>
+
+                            <div class="position-relative">
+                                <i
+                                    class="bi bi-envelope-fill position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
+                                <input type="text" class="form-control ps-5" placeholder="Enter email or phone">
+                            </div>
+
+                            <div class="form-text">We'll never share your details with anyone else.</div>
                         </div>
 
                         <!-- Password -->
                         <div class="mb-4">
-                            <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
-                            <div id="passwordHelp" class="form-text">Your password is safe with us.</div>
+                            <label class="form-label">Password</label>
+
+                            <div class="position-relative">
+                                <i
+                                    class="bi bi-lock-fill position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
+                                <input type="password" class="form-control ps-5" placeholder="Enter password">
+                            </div>
+
+                            <div class="form-text">Your password is safe with us.</div>
                         </div>
 
                         <!-- Checkbox -->
